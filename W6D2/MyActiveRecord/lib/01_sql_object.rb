@@ -49,15 +49,24 @@ class SQLObject
       FROM
         #{table_name}
     SQL
-    query
+    parse_all(query)
   end
 
   def self.parse_all(results)
-    # ...
+    results.map { |result| self.new(result)}
   end
 
   def self.find(id)
-    # ...
+    query = DBConnection.execute(<<-SQL, id)
+      SELECT
+        #{table_name}.*
+      FROM
+        #{table_name}
+      WHERE
+        #{table_name}.id = ?
+
+    SQL
+    parse_all(query).first
   end
 
   def initialize(params = {})
