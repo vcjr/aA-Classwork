@@ -10,8 +10,10 @@
 #  birth_date  :date             not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#
+# require 'date_helper'
+
 class Cat < ApplicationRecord
+    include ActionView::Helpers::DateHelper
     COLORS = [
         "Black",
         "White",
@@ -26,5 +28,7 @@ class Cat < ApplicationRecord
     validates :description, presence: true
     validates :birth_date, presence: true
 
-    
+    def age
+        time_ago_in_words(self.birth_date)
+    end
 end

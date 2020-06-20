@@ -1,3 +1,29 @@
-<h1>Say hi to <%= @cat.name %> </h1>
+<h1>Say hi to 😻<%= @cat.name %>😻</h1>
 
 <table>
+    <tr>
+        <th>Attribute</th>
+        <th>Value</th>
+    </tr>
+    <tr>
+        <th>Age</th>
+        <th><%= @cat.age %></th>
+    </tr>
+    <tr>
+        <th>Birth Date</th>
+        <th><%= @cat.birth_date %></th>
+    </tr>
+    <tr>
+        <th>Color</th>
+        <th><%= @cat.color %></th>
+    </tr>
+    <tr>
+        <th>Sex</th>
+        <th><%= @cat.sex %></th>
+    </tr>
+
+</table>
+
+<form action="cats_url" method="get">
+    <input type="submit" value="All 😸's ">
+</form>
