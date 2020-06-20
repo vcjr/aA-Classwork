@@ -12,5 +12,19 @@
 #  updated_at  :datetime         not null
 #
 class Cat < ApplicationRecord
-    validates :
+    COLORS = [
+        "Black",
+        "White",
+        "Orange",
+        "Purple"
+    ]
+
+    validates :name, presence: true
+    validates :color, presence: true, inclusion: {in: COLORS,
+        message: "%{value} is not a valid color"}
+    validates :sex, presence: true, inclusion: {in: ["M", "F"]}
+    validates :description, presence: true
+    validates :birth_date, presence: true
+
+    
 end
