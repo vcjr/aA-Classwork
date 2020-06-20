@@ -21,9 +21,8 @@
         <th>Sex</th>
         <th><%= @cat.sex %></th>
     </tr>
-
 </table>
+    
 
-<form action="cats_url" method="get">
-    <input type="submit" value="All 😸's ">
-</form>
+<button><a href=" <%= edit_cat_url(@cat) %> ">Edit Cat🙀</a></button>
+<button><a href=" <%= cats_url %> ">All 😸's</a></button>
