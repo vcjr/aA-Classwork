@@ -19,25 +19,39 @@ class CatsController < ApplicationController
     # The `new` action will just render a form for us to put values into a dummy
     # instance so that once we have that form. Inside of it we will call the 
     # create to send the data to the database using the create action.
-    def new
+    def new # A route to the form where new is
         @cat = Cat.new
         render :new 
     end
 
-    def create
+    def create # an action to submit the form to
         @cat = Cat.new(cat_params)
 
         if @cat.save
             redirect_to cat_url(@cat)
         else
-            render json: @cat.errors.full_messages, status: 422
+            render :new
+            # render json: @cat.errors.full_messages, status: 422
         end
     end
 
-    def edit
+    def edit # A route that leads to a form that submits that info to the update route action
         @cat = Cat.find_by(id: params[:id])
         render :edit
     end
+
+    def update
+        @cat = Cat.find_by(id: params[:id])
+
+        if @cat.update_attributes(cat_params)
+            redirect_to cat_url(@cat)
+        else
+            render :edit
+            # render json: @cat.errors.full_messages, status: 422
+        end
+    end
+
+    private
 
     def cat_params
         params.require(:cat).permit(:name, :birth_date, :color, :sex, :description)
