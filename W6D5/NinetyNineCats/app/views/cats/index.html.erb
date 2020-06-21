@@ -2,11 +2,11 @@
 <h1>All Of The Cats In The World</h1>
 
 <ul>
+    <%= render @cats %>
+    <!-- Manual way
     <% @cats.each do |cat| %>
-        <li>
-            <h3>
-               <a href="<%= cat_url(cat) %>"><%= cat.name %></a>
-            </h3>
-        </li>
+       <%= render cat %> 
+       <%#= render "cat", cat: cat  %> even longer way
     <% end %>
+    -->
 </ul>
