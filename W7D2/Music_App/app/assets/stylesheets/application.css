@@ -13,3 +13,38 @@
  *= require_tree .
  *= require_self
  */
+
+ header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    justify-content: center;
+    font-family: 'Major Mono Display', monospace;
+ }
+
+ nav {
+     font-family: Helvetica, sans-serif;
+     width: auto;
+ }
+
+ #logged-in {
+     display: flex;
+     align-items: baseline;
+     justify-content:  space-between;
+     flex-direction: row;
+ }
+
+ body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    justify-content: center;
+    font-family: 'Major Mono Display', monospace;
+ }
+
+ body > form {
+    margin: 20px;
+ }
+
