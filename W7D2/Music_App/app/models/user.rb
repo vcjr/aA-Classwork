@@ -43,7 +43,7 @@ class User < ApplicationRecord
     # password digest for the user using the password and BCrypt
     def password=(password)
         @password = password
-        self.password_digest = BCrypt::Password.create(password)
+        self.password_diget = BCrypt::Password.create(password)
     end
 
     # This method is going to receive a password all we do is run the BCrypt built
@@ -52,7 +52,7 @@ class User < ApplicationRecord
     # string into a BCrypt password object that we can run the command to check
     # if the password given is the same as the encrypted version  
     def is_password?(password)
-        pass_digest = self.password_digest
+        pass_digest = self.password_diget
         BCrypt::Password.new(pass_digest).is_password?(password)
     end
 

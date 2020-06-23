@@ -6,10 +6,30 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
   </head>
 
   <body>
+
+  <h1>Music App</h1>
+
+    <% if logged_in? %>
+      <h1>Hi <%= current_user.email %></h1>
+      <form method="post" action="<%= session_url %>">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+        <input type="hidden" name="_method" value="Delete">
+      <input value="Log Out" type="submit" />
+    </form>
+    <% else %>
+      <h1>Hi aren't logged in...</h1>
+      <form method="Get" action="<%= new_session_url %>">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+        <input value="Log In" type="submit" />
+    </form>
+    <% end %>
+ 
     <%= yield %>
   </body>
 </html>
