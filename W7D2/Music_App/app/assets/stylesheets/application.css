@@ -16,35 +16,131 @@
 
  header {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     padding: 20px;
-    justify-content: center;
+    justify-content: space-between;
     font-family: 'Major Mono Display', monospace;
  }
 
  nav {
-     font-family: Helvetica, sans-serif;
-     width: auto;
- }
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    font-family: Helvetica, sans-serif;
+}
 
- #logged-in {
-     display: flex;
-     align-items: baseline;
-     justify-content:  space-between;
-     flex-direction: row;
- }
+#logged-in {
+    display: flex;
+    /* align-items: stretch; */
+    justify-content: space-between;
+    /* flex-direction: column; */
+    padding-left: 20px;
+}
+
+body {
+
+    /* display: flex; */
+    /* align-content: center; */
+    /* flex-direction: column; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    font-family: Arial, Helvetica, monospace;
+}
+
+a {
+    text-decoration: none;
+	color: Black;
+	font-weight: bold;
+	font-size: 20px;
+	position: relative;
+    padding: 10px 20px;
+    margin-left: 20px;
+}
+
+a:before, a:after{
+	content: '';
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	transition: all 0.3s ease;
+}
+a:before{
+	top: -2.5%;
+	left: -1%;
+	border-top: 2px solid black;
+	border-left: 2px solid black;	
+}
+a:after{
+	bottom: -2.5%;
+	right: -1%;
+	border-bottom: 2px solid black;
+	border-right: 2px solid black;
+}
+a:hover:before, a:hover:after{
+	width: 100%;
+	height: 100%;
+	transition: all 0.3s ease;
+}
+
+@keyframes first{
+	0%{
+		width: 0%;
+		height: 0%;
+	}
+	25%{
+		width: 100%;
+		height: 0%;
+	}
+	50%{
+		width: 100%;
+		height: 100%;
+	}
+	100%{
+		width: 100%;
+		height: 95%;
+	}
+}
+
+@keyframes second{
+	0%{
+		width: 0%;
+		height: 0%;
+	}
+	50%{
+		width: 0%;
+		height: 0%;
+	}	
+	75%{
+		width: 100%;
+		height: 0%;
+		opacity: 1;
+	}
+	100%{
+		width: 100%;
+		height: 95%;
+		opacity: 1;
+	}
+}
+/* 
+ 
+
+ 
 
  body {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    
     padding: 20px;
-    justify-content: center;
-    font-family: 'Major Mono Display', monospace;
+    
  }
 
- body > form {
-    margin: 20px;
+ #logged-in p {
+     padding-right: 50px;
  }
 
+ .header {
+     display: flex;
+     flex-direction: row;
+     justify-content: space-evenly;
+ } 
+ */

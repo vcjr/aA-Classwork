@@ -15,24 +15,23 @@
     <h1>Music App</h1>
     <nav>
       <% if logged_in? %>
-        <div id="logged-in">
           <p>Hi <%= current_user.email %></p>
+        <logged-in>
           <form method="post" action="<%= session_url %>">
             <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
             <input type="hidden" name="_method" value="Delete">
             <input value="Log Out" type="submit" />
           </form>
-        </div>
+        </logged-in>
       <% else %>
-        <loginout>
+        <logged-out>
           <a href="<%= new_session_url %>">Sign In</a>
           <a href="<%= new_user_url %>">Sign Up</a>
-        </loginout>
+        </logged-out>
       <% end %>
     </nav>
   </header>
 
-    
   <body>
     <%= yield %>
   </body>
