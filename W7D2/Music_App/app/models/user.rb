@@ -12,14 +12,15 @@
 class User < ApplicationRecord
     validates :email, presence: true, uniqueness: true
     validates :session_token, presence: true, uniqueness: true
+    validates :password, length: {minimum: 7}, allow_nil: true
     
     after_initialize :ensure_session_token
+
+    attr_reader :password
     # This will generate a random session token using the SecureRandom &
     # urlsafe_base64 method 
     # I can goto the rails console and ls the SecureRandom to get list of methods
-    def self.generate_session_token
-        SecureRandom::urlsafe_base64
-    end
+    
 
     # Query the User table to find the user by email. Then we check to make sure 
     #the user is found and that the password entered matches with the password digest
@@ -38,11 +39,34 @@ class User < ApplicationRecord
         self.session_token
     end
 
+    # This will create our @password variable and also create and set our 
+    # password digest for the user using the password and BCrypt
+    def password=(password)
+        @password = password
+        self.password_digest = BCrypt::Password.create(password)
+    end
+
+    # This method is going to receive a password all we do is run the BCrypt built
+    # in method is_password on this.
+    # First we obtain the password_digest of the user. Then we go and turn that
+    # string into a BCrypt password object that we can run the command to check
+    # if the password given is the same as the encrypted version  
+    def is_password?(password)
+        pass_digest = self.password_digest
+        BCrypt::Password.new(pass_digest).is_password?(password)
+    end
+
     private
 
+    # This is going to make sure that the user has an active session token
+    # If the user doesnt have one it will generate a new one and give it to him
+    # this is after we initialize a new user we used the `after_initialize` helper
     def ensure_session_token
         self.session_token ||= User.generate_session_token
     end
 
+    def self.generate_session_token
+        SecureRandom::urlsafe_base64
+    end
 
 end
