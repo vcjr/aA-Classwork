@@ -72,7 +72,7 @@ a {
 	font-size: 20px;
 	position: relative;
     padding: 10px 20px;
-    margin-left: 20px;
+    margin: 40px;
 }
 
 a:before, a:after{
@@ -98,6 +98,12 @@ a:hover:before, a:hover:after{
 	width: 100%;
 	height: 100%;
 	transition: all 0.3s ease;
+}
+
+ul li {
+	margin-top: 20px;
+	margin-bottom: 30px;
+	list-style: none;
 }
 
 @keyframes first{

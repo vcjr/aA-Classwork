@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
         if user
             # session[:session_token] = user.reset_session_token!
             login!(user)
-            redirect_to users_url
+            redirect_to bands_url
         else
             flash.now[:errors] = ['Wrong Credentials, please try again...']
             render :new

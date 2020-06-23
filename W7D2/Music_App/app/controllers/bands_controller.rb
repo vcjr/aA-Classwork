@@ -13,4 +13,6 @@ class BandsController < ApplicationController
         # render json: @band
         render :show
     end
+
+
 end

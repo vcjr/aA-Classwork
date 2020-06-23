@@ -1,6 +1,11 @@
 
 <ul>
     <% @bands.each do |band| %>
-    <li><%= band.name %></li>
+    <li>
+        <a href="<%= band_url(band) %>"><%= band.name %></a> ->
+        Placeholder Link to Edit
+        Placeholder Link to Delete    
+    </li>
+
     <% end %>
 </ul>
