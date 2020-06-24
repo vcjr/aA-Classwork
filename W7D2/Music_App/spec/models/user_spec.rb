@@ -1,5 +1,5 @@
 require 'rails_helper'
-
+require 'spec_helper'
 RSpec.describe User, type: :model do
   # What to test?
   #   Validations
@@ -16,9 +16,13 @@ RSpec.describe User, type: :model do
           is_at_least(7).
           on(:create)  
       end
-
-      # it { should validate_uniqueness_of(:email) }
-      # it { should validate_uniqueness_of(:session_token) }
+    end
+    describe 'uniqueness' do
+      before :each do
+        create(:user) 
+      end
+      it { should validate_uniqueness_of(:email) }
+      it { should validate_uniqueness_of(:session_token) }
     end
 
     describe 'Class Methods' do
@@ -28,9 +32,19 @@ RSpec.describe User, type: :model do
       end
 
       describe '#is_password?' do
+        let!(:user) { create(:user) }
+        context "with a valid password" do
+          it 'should return true' do
+            expect(user.is_password?('starwars')).to be(true)
+          end
+        end
+
+        context "with an invalid password" do
+          it 'should return false' do
+            expect(user.is_password?('stawsdaad')).to be(false)
+          end
+        end
         it 'should take in a plain-text password'
-        it 'should true if password matches the BCrypt password'
-        it 'should false if password does no match the BCrypt password'
       end
 
       describe '#reset_session_token' do
