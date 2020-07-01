@@ -76,25 +76,19 @@ Array.prototype.twoSum = function() {
 // Hello Programmers
 
 Array.prototype.transpose = function () {
-    let answer = []
+    let answer = [];
 
-    this.forEach(subArr => {
-        let subarray = []
-        subArr.forEach(ele => {
-            subarray.push(ele)
-        });
-        answer.push(subarray)
-    });
 
     for (let i = 0; i < this.length; i++) {
-        that = this
+        that = this;
         let subarray = [];
         for (let j = 0; j < that.length; j++) {
-            
+            subarray.push(that[j][i]);
         }
+        answer.push(subarray);
     }
 
-    return answer
+    return answer;
 }
 
 // def transpose(array) 
@@ -111,22 +105,24 @@ Array.prototype.transpose = function () {
 //     answer
 // end
 
-arr = [   
-    [1,2,3,4],
-    [1,2,3,4],
-    [1,2,3,4],
-    [1,2,3,4],
-]
+// arr = [   
+//     [1,2,3,4],
+//     [1,2,3,4],
+//     [1,2,3,4],
+//     [1,2,3,4],
+// ]
 
-console.log(arr.transpose());
+// console.log(arr.transpose());
 
-// def transpose(arr)
-//   rows = arr.count
-//   cols = arr.first.count
-//   Array.new(cols) do |col|
-//     Array.new(rows) do |row|
-//       arr[row][col]
-//     end
-//   end
-// end
+Array.prototype.myEach = function(callback) { // use callback in function//
+    let answer = [];
+    for (let index = 0; index < this.length; index++) {
+        answer.push(callback(this[index])  );
+        
+    }
+    return answer;
+}
 
+
+arr = ['miss', 'me'];
+arr.myEach((ele)=> console.log(ele));
