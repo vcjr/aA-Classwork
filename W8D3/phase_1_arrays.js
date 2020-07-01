@@ -114,15 +114,4 @@ Array.prototype.transpose = function () {
 
 // console.log(arr.transpose());
 
-Array.prototype.myEach = function(callback) { // use callback in function//
-    let answer = [];
-    for (let index = 0; index < this.length; index++) {
-        answer.push(callback(this[index])  );
-        
-    }
-    return answer;
-}
 
-
-arr = ['miss', 'me'];
-arr.myEach((ele)=> console.log(ele));
