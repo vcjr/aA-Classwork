@@ -1,11 +1,11 @@
-Array.prototype.myMap = function(callback) { // use callback in function//
-    let answer = [];
+Array.prototype.myEach = function(callback) { // use callback in function//
+    
     for (let index = 0; index < this.length; index++) {
-        answer.push(callback(this[index])  );
-        
+        let ele = this[index];
+        (callback(ele));
     }
-    return answer;
-}
+    // return this;
+};
 
 
 // arr = ['miss', 'me']; 
@@ -13,9 +13,20 @@ Array.prototype.myMap = function(callback) { // use callback in function//
 
 
 const timesTwo = function (ele) {
-    console.log(ele * 2)
+    return ele * 2;
 };
 
-[1,2,3].myMap(timesTwo); // The param as callback does not 
+console.log([1,2,3].myEach(timesTwo)); // The param as callback does not 
+
+Array.prototype.myMap = function(callback) {
+    let result = [];
+    
+    let mapped = this.myEach(callback);
+    result.push(mapped);
+    
+    return result;
+};
+
+console.log([1,2,3].myMap(timesTwo)); // The param as callback does not 
 
 
