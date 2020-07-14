@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("class DOMNodeCollection {\n    constructor(htmlElements) {\n        this.htmlElements = htmlElements;\n    }\n\n\n    // html() {\n    //     if (arguments.length == 1) {\n    //         // debugger;\n            \n    //     } else {\n    //         return this.htmlElements[0].innerHTML; \n    //     }\n    // }\n\n    html(arg) {\n        if (typeof arg === \"string\") {\n        this.htmlElements.forEach(\n            (element) => {\n                // debugger;\n                element.innerHTML = arguments[0];\n            });\n        } else {\n            return this.htmlElements[0].innerHTML;\n        }\n    }\n\n    empty() {\n        this.html(\"\");\n    }\n\n    append() {\n\n    }\n}\n\nmodule.exports = DOMNodeCollection;\n\n//# sourceURL=webpack:///./src/dom_node_collection.js?");
+eval("class DOMNodeCollection {\n    constructor(htmlElements) {\n        this.htmlElements = htmlElements;\n    }\n\n\n    // html() {\n    //     if (arguments.length == 1) {\n    //         // debugger;\n            \n    //     } else {\n    //         return this.htmlElements[0].innerHTML; \n    //     }\n    // }\n\n    html(arg) {\n        if (typeof arg === \"string\") {\n        this.htmlElements.forEach(\n            (element) => {\n                // debugger;\n                element.innerHTML = arguments[0];\n            });\n        } else {\n            return this.htmlElements[0].innerHTML;\n        }\n    }\n\n    empty() {\n        this.html(\"\");\n    }\n\n    append(html) {\n        // this.htmlElements\n    }\n}\n\nmodule.exports = DOMNodeCollection;\n\n//# sourceURL=webpack:///./src/dom_node_collection.js?");
 
 /***/ }),
 

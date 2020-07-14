@@ -29,8 +29,8 @@ class DOMNodeCollection {
         this.html("");
     }
 
-    append() {
-
+    append(html) {
+        // this.htmlElements
     }
 }
 
